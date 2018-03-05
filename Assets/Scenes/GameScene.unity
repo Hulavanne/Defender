@@ -862,10 +862,11 @@ MonoBehaviour:
   Level: {fileID: 0}
   PlayerShip: {fileID: 0}
   WaveNumber: 0
-  WaveEnemyAmount: 3
+  WaveEnemyAmount: 5
+  EnemyIncreasePerWave: 2
   RemainingBackupShips: 2
   Score: 0
-  Characters: []
+  Ships: []
 --- !u!114 &448917105
 MonoBehaviour:
   m_ObjectHideFlags: 0

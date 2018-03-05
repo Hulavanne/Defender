@@ -22,8 +22,7 @@ public static class ProjectConstants
 
     public static string AddOrdinal(int number)
     {
-        if (number <= 0)
-            return number.ToString();
+        if (number <= 0) return number.ToString();
 
         switch (number % 100)
         {

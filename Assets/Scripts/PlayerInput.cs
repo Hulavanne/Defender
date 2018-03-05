@@ -54,7 +54,7 @@ public class PlayerInput : MonoBehaviour
     {
         bool _shootInput = false;
 
-        // Keyboard inputs for shooting
+        // Keyboard input for shooting
         if (Input.GetKeyDown(KeyCode.LeftControl)) _shootInput = true;
 
         return _shootInput;

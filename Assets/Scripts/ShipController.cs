@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterController : MonoBehaviour
+public abstract class ShipController : MonoBehaviour
 {
-    [Header("Character Controller variables")]
+    [Header("Ship Controller variables")]
     public GameObject ProjectilePrefab;
     public float ProjectileSpeed = 1.0f;
     public float ReloadTime = 1.0f;
@@ -34,7 +34,7 @@ public abstract class CharacterController : MonoBehaviour
 
     public virtual void Destroyed()
     {
-        GameManager.Instance.Characters.Remove(this);
+        GameManager.Instance.Ships.Remove(this);
         Destroy(gameObject);
     }
 }

@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class ShipCollision : MonoBehaviour
 {
-    CharacterController m_characterController;
+    ShipController m_shipController;
 
 	void Awake()
     {
-        m_characterController = transform.GetComponentInParent<CharacterController>();
-	}
-
-	void Update()
-    {
-		
+        m_shipController = transform.GetComponentInParent<ShipController>();
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -24,24 +19,24 @@ public class ShipCollision : MonoBehaviour
         {
             if (other.tag == "Enemy")
             {
-                m_characterController.Destroyed();
+                m_shipController.Destroyed();
             }
             else if (other.tag == "EnemyProjectile")
             {
                 Destroy(other.gameObject);
-                m_characterController.Destroyed();
+                m_shipController.Destroyed();
             }
         }
         else if (tag == "Enemy")
         {
             if (other.tag == "Player")
             {
-                m_characterController.Destroyed();
+                m_shipController.Destroyed();
             }
             else if (other.tag == "PlayerProjectile")
             {
                 Destroy(other.gameObject);
-                m_characterController.Destroyed();
+                m_shipController.Destroyed();
             }
         }
     }

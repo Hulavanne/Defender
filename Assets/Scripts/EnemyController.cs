@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : CharacterController
+public class EnemyController : ShipController
 {
     [Header("Enemy Controller variables")]
     public float MovementSpeed = 1.0f;
@@ -17,6 +17,7 @@ public class EnemyController : CharacterController
 
     public override void Initialize()
     {
+        // Get the sector the enemy is currently in and get a random position for the enemy to roam to
         m_currentSector = getCurrentSector();
         m_targetPosition = ProjectConstants.PickRandomPositionNearby(transform.localPosition, m_minRoamingDistance, m_maxRoamingDistance);
     }

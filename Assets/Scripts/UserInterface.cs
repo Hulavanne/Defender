@@ -7,11 +7,15 @@ using UnityEngine.UI;
 
 public class UserInterface : MonoBehaviour
 {
+    [Header("Top UI elements")]
     public RectTransform RemainingShips;
     public Text ScoreText;
 
+    [Header("Overlay UI elements")]
     public RectTransform Overlay;
     public Text WaveText;
+
+    [Header("Game Over Screen UI elements")]
     public RectTransform GameOverScreen;
     public RectTransform SubmitScoreScreen;
     public RectTransform TopScoresScreen;
@@ -23,6 +27,7 @@ public class UserInterface : MonoBehaviour
 
 	void Awake()
     {
+        // Deactivate UI elements that aren't needed right now
         GameOverScreen.gameObject.SetActive(false);
         TopScoresScreen.gameObject.SetActive(false);
 
@@ -31,7 +36,7 @@ public class UserInterface : MonoBehaviour
 
 	void Update()
     {
-        // Update the amount of backup ships remaining
+        // Update UI elements indicating the amount of backup ships remaining
         for (int i = 0; i < m_shipImages.Length; ++i)
         {
             if (i < GameManager.Instance.RemainingBackupShips) m_shipImages[i].enabled = true;
@@ -52,6 +57,7 @@ public class UserInterface : MonoBehaviour
 
     public void ButtonClick_SubmitScore()
     {
+        // Load all scores as a string, then add the newly submitted name and score to the end of the string and save that
         string _allScores = PlayerPrefs.GetString("Scores");
         string _stringToSave = NameInputField.text + ":" + GameManager.Instance.Score + "|";
         _allScores += _stringToSave;
@@ -59,6 +65,7 @@ public class UserInterface : MonoBehaviour
 
         SetTopScoreTexts();
 
+        // Deactivate the submit score screen and activate the top scores screen
         SubmitScoreScreen.gameObject.SetActive(false);
         TopScoresScreen.gameObject.SetActive(true);
     }
@@ -88,12 +95,14 @@ public class UserInterface : MonoBehaviour
         // Name1:200|Name2:100|Name3:1000|
         string _allScores = PlayerPrefs.GetString("Scores");
 
+        // Temprorary variables
         string _nameAndScore = "";
         string _name = "";
         int _score = 0;
 
         Dictionary<string, int> _namesAndScores = new Dictionary<string, int>();
 
+        // Separate names and scores from the all scores string and add them to a dictionary
         for (int i = 0; i < _allScores.Length; ++i)
         {
             if (_allScores[i] != '|')
@@ -112,8 +121,10 @@ public class UserInterface : MonoBehaviour
             }
         }
 
+        // Sort the dictionary by score from highest to lowest
         _namesAndScores = _namesAndScores.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
+        // Set the top score texts
         for (int i = 1; i < TopScores.transform.childCount; ++i)
         {
             if (i <= _namesAndScores.Count)
