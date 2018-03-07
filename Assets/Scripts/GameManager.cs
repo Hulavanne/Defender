@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject PlayerPrefab;
     public GameObject EnemyPrefab;
+    public GameObject RadarCameraPrefab;
 
     [HideInInspector] public UserInterface UI;
     [HideInInspector] public Transform Level;

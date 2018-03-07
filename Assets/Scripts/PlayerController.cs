@@ -91,12 +91,12 @@ public class PlayerController : ShipController
         // If the middle sector's position has moved more than its width in length, then
         // take the first/last sector and place it ahead of the other sector in relation
         // to the direction of movement, also shift the sectors in hierachy according to their positions
-        if (_middleSector.position.x >= ProjectConstants.SECTOR_WIDTH)
+        if (_middleSector.localPosition.x >= ProjectConstants.SECTOR_WIDTH * 0.1f)
         {
             _lastSector.position = new Vector2(_firstSector.localPosition.x - 8, 0);
             _lastSector.SetAsFirstSibling();
         }
-        if (_middleSector.position.x <= -ProjectConstants.SECTOR_WIDTH)
+        else if (_middleSector.localPosition.x <= -ProjectConstants.SECTOR_WIDTH * 0.1f)
         {
             _firstSector.position = new Vector2(_lastSector.localPosition.x + 8, 0);
             _firstSector.SetAsLastSibling();
