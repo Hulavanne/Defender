@@ -1,24 +1,15 @@
 # Defender
-Defender clone
+Defender Clone
 
-
-A quick prototype made in a few days in order to showcase my coding style and skillset. As such the execution
-of some features may not reflect the way I would have programmed them had this been an actual product,
-e.g. the hard coded player controls.
-
-
+A quick prototype made in a few days in order to showcase my coding style and skillset.
 The goals of this little project were to implement:
 
-1) Player controlled ship that can move vertically on the screen
-2) Horizontal movement and acceleration of this ship
-3) Level should scroll relative to the ship's velocity
-4) Level wraps around, is endless
-5) Randomly spawning enemies that target the player's ship
-6) Enemies shoot projectiles that do damage to the player's ship
-7) Touch/mouse and keyboard controls
-8) Increasing difficulty
-9) Game scoring
-
+1) A player controlled ship that can move vertically and horizontally (with acceleration) on the screen
+2) A level that scrolls relative to the ship's velocity and wraps around seamlessly, is endless
+3) Randomly spawning enemies that target the player's ship, shooting at it
+4) Touch/mouse and keyboard controls for the player
+5) An ever increasing difficulty
+6) A scoring system
 
 How to play?
 
