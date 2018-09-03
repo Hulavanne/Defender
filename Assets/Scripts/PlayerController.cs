@@ -39,7 +39,7 @@ public class PlayerController : ShipController
             GameManager.Instance.Level.GetChild(Mathf.CeilToInt(GameManager.Instance.Level.childCount / 2.0f) - 1));
     }
 
-    private void setSpeed(int input)
+    private void setSpeed(float input)
     {
         if (input > 0)
         {
@@ -103,7 +103,7 @@ public class PlayerController : ShipController
         }
     }
 
-    private void movePlayerVertically(int input)
+    private void movePlayerVertically(float input)
     {
         // Move the ship vertically within the boundaries of the level
         Ship.localPosition = new Vector2(Ship.localPosition.x, Ship.localPosition.y + input * MovementSpeedY * Time.deltaTime);
