@@ -1,5 +1,4 @@
 # Defender
-Defender Clone
 Executable download: https://drive.google.com/open?id=1meClv_Eaf4WcgYzmPjxkSQU6jGQMpzUQ
 
 A quick prototype made in a few days in order to showcase my coding style and skillset (code found in Assets/Scripts).
