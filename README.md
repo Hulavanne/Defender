@@ -1,7 +1,7 @@
 # Defender
 Defender Clone
 
-A quick prototype made in a few days in order to showcase my coding style and skillset.
+A quick prototype made in a few days in order to showcase my coding style and skillset (code found in Assets/Scripts).
 The goals of this little project were to implement:
 
 1) A player controlled ship that can move vertically and horizontally (with acceleration) on the screen
