@@ -57,9 +57,10 @@ public class UserInterface : MonoBehaviour
 
     public void ButtonClick_SubmitScore()
     {
-        // Load all scores as a string, then add the newly submitted name and score to the end of the string and save that
+        // Load all scores as a string, then add the newly submitted name (with date and time as an ID)
+        // and score to the end of the string and save all of that
         string _allScores = PlayerPrefs.GetString("Scores");
-        string _stringToSave = NameInputField.text + ":" + GameManager.Instance.Score + "|";
+        string _stringToSave = NameInputField.text + "(" + DateTime.Now + ")" + GameManager.Instance.Score + "|";
         _allScores += _stringToSave;
         PlayerPrefs.SetString("Scores", _allScores);
 
@@ -111,7 +112,7 @@ public class UserInterface : MonoBehaviour
             }
             else
             {
-                string[] _splitStrings = _nameAndScore.Split(':');
+                string[] _splitStrings = _nameAndScore.Split(')');
                 _nameAndScore = "";
 
                 _name = _splitStrings[0];
@@ -129,11 +130,11 @@ public class UserInterface : MonoBehaviour
         {
             if (i <= _namesAndScores.Count)
             {
-                _name = _namesAndScores.Keys.ElementAt(i - 1);
+                _name = _namesAndScores.Keys.ElementAt(i - 1).Split('(')[0]; // Split in order to remove ID from the name
                 _score = _namesAndScores.Values.ElementAt(i - 1);
                 TopScores.transform.GetChild(i).GetComponent<Text>().text = ProjectConstants.AddOrdinal(i) + ": " + _name + " | " + _score;
             }
-            else TopScores.transform.GetChild(i).GetComponent<Text>().text = ProjectConstants.AddOrdinal(i) + ": ";
+            else TopScores.transform.GetChild(i).GetComponent<Text>().text = "";
         }
     }
 }
